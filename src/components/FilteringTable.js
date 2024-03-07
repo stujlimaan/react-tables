@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import {useTable,useGlobalFilter } from 'react-table'
+import {useTable,useGlobalFilter,useFilters } from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS ,GROUP_COLUMNS} from './columns'
 import './table.css'
@@ -10,7 +10,7 @@ function FilteringTable() {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => MOCK_DATA, [])
 
-   const tableInstance= useTable({columns,data},useGlobalFilter)
+   const tableInstance= useTable({columns,data},useFilters,useGlobalFilter)
    const {getTableProps,getTableBodyProps,headerGroups,footerGroups,rows,prepareRow,state,setGlobalFilter} = tableInstance
    const {globalFilter } = state
   return (
@@ -22,7 +22,9 @@ function FilteringTable() {
             headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                  <th {...column.getHeaderProps()}>{column.render('Header')}
+                  <div>{column.canFilter ? column.render('Filter'):null}</div>
+                  </th>
                 ))}
               </tr>
             ))

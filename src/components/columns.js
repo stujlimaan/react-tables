@@ -1,42 +1,51 @@
 import {format} from 'date-fns'
+import ColumnFilter from './ColumnFilter'
 
 export const COLUMNS = [
     {
         Header:'Id',
         accessor:'id',
-        Footer:'Id'
+        Footer:'Id',
+        Filter:ColumnFilter,
+        disableFilters:true
 
     },
     {
         Header:'First Name',
         accessor:'first_name',
-        Footer:'First Name'
+        Footer:'First Name',
+        Filter:ColumnFilter
     }
     ,
     {
         Header:'Last Name',
         accessor:'last_name',
-        Footer:'Last Name'
+        Footer:'Last Name',
+        Filter:ColumnFilter
     },
     {
         Header:'email Address',
         accessor:'email',
-        Footer:'email Address'
+        Footer:'email Address',
+        Filter:ColumnFilter
     },
     {
         Header:'gender',
         accessor:'gender',
-        Footer:'gender'
+        Footer:'gender',
+        Filter:ColumnFilter
     },
     {
         Header:'age',
         accessor:'age',
-        Footer:'age'
+        Footer:'age',
+        Filter:ColumnFilter
     },
     {
         Header:'country',
         accessor:'country',
-        Footer:'country'
+        Footer:'country',
+        Filter:ColumnFilter
     }
 ]
 
