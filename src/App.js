@@ -6,8 +6,13 @@ import FilteringTable from './components/FilteringTable';
 import PaginationTable from './components/PaginationTable';
 import ColumnOrder from './components/ColumnOrder';
 import RowSelection from './components/RowSelection';
+import RowSelect from "./components/RowSelect.js";
+
+console.log(process.env.REACT_APP_ABC)
+console.log(process.env)
 
 function App() {
+  
   return (
     <div className="App">
       {/* <BasicTable/> */}
@@ -15,7 +20,8 @@ function App() {
       {/* <FilteringTable/> */}
       {/* <PaginationTable/> */}
       {/* <ColumnOrder/> */}
-      <RowSelection/>
+      {/* <RowSelection/> */}
+      <RowSelect/>
     </div>
   );
 }
