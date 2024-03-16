@@ -29,50 +29,11 @@ export const COLUMNS = [
         accessor:'first_name',
         Footer:'First Name',
         Filter:ColumnFilter,
-        Cell: ({ value, row }) => {
-            if (row.original.type === 'select') { 
-              return (
-                <select
-                  value={value}
-                  onChange={e => {
-                    
-                    row.setValue('value', e.target.value);
-                  }}
-                >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-              );
-            } else if (row.original.type === 'email') {
-              return (
-                <input
-                  type="email"
-                  value={value}
-                  onChange={e => {
-                    
-                    row.setValue('value', e.target.value);
-                  }}
-                />
-              );
-            } else {
-              return null; 
-            }
+        Cell: ({ value, row,type }) => {
+            console.log(type,value,row,'bb')
+            
           }
-        // Cell:({cell,row, data, setData})=>{
-        //     console.log('Cell',row)
-        //     console.log(row.original.type,'type')
-        //     return <Text value={cell.value} onChange={
-        //         (newValue) => {
-        //         // Update the data in the parent component
-        //         console.log('New Value',newValue,row.index,cell.column.id,);
-        //         const updatedData = [...data];
-        //         console.log(updatedData[row.index],row.index)
-        //         updatedData[row.index][cell.column.id] = newValue;
-
-        //         console.log('Updated Data', updatedData[row.index][cell.column.id] ,newValue);
-        //         // setData(updatedData);
-        //       }}/>
+     
         }
     
     ,

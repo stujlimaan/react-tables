@@ -6,38 +6,13 @@ import "./table.css";
 import { Checkbox } from "./Checkbox";
 import EditModal from "./EditModal";
 import Text from "./Text";
+import GenderSelect from "./GenderSelect";
+import { ConditionalColumns } from "./ConditionColumns";
 
 
 function RowSelect() {
-  const columns = useMemo(() => COLUMNS.map(pro=>{
-    return {
-   ...pro,
-      Cell: (row) => {
-        return (
-          <>
-            {/* <input
-              type="checkbox"
-              checked={row.row.selected}
-              onChange={(e) => {
-                updateMyData(row.column.id, row.row.id, e.target.checked);
-              }}
-            /> */}
-            <Text checked={row.row.selected}
-              value={row.value}
-              updateMyData={updateMyData}
-              columnId={row.column.id}
-              rowId={row.row.id}
-               />
-          </>
-        );
-      },
-    };
-  // return <Text checked={row.row.selected}
-  //             onChange={(e) => {
-  //               updateMyData(row.column.id, row.row.id, e.target.checked);
-  //             }} />
-  }), []);
-  //   const data = useMemo(() => MOCK_DATA, []);
+  const columns = useMemo(() => ConditionalColumns(COLUMNS), []);
+  
   const [data, setData] = useState([...MOCK_DATA]);
 
   const [selectedItem, setSelectedItem] = useState(null);
@@ -136,28 +111,8 @@ function RowSelect() {
                 {row.cells.map((cell) => (
                   <td {...cell.getCellProps()}>
                     {cell.render('Cell')}
-                    {/* {console.log(
-                      "Cell rendered",
-                      cell.column,
-                      selectedFlatRows[0]?.id,
-                      cell.render("Cell")
-                    )} */}
-                    {/* {selectedFlatRows.length > 0 &&
-                    cell.row.id == selectedFlatRows[0]?.id ? (
-                      <input
-                        value={cell.row.values[cell.column.id]}
-                          onChange={e => {
-                            console.log(e.target.value,'jfhfhhfh')
-                            // setData()
-                            // const newValue = e.target.value;
-                            // row.original[cell.column.id] = newValue;
-                            // cell.row.original(row.original);
-                          }}
-                        // onChange={e => handleInputChange(e, row, cell.column)}
-                      />
-                    ) : ( */}
-                      {/* cell.render("Cell") */}
-                    {/* )} */}
+                    
+                   
                   </td>
                 ))}
               </tr>
