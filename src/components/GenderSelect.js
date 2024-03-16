@@ -6,12 +6,13 @@ const genderOptions = [
   { value: 'other', label: 'Other' }
 ];
 
-function GenderSelect({ value, onChange }) {
+function GenderSelect({ value, updateMyData }) {
+  // console.log(value, updateMyData);
   return (
     <Select
     options={genderOptions}
     value={genderOptions.find(option => option.value === value)}
-    onChange={selectedOption => onChange(selectedOption.value)}
+    onChange={selectedOption => updateMyData(selectedOption.value)}
   />
   )
 }

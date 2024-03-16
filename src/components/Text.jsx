@@ -4,6 +4,7 @@ import MOCK_DATA from "./MOCK_DATA.json";
 
 function Text({value,updateMyData,columnId,rowId}) {
       const [data,setData] = useState(value)
+      console.log(columnId,rowId)
 
     // console.log(value,onChange)
     const handleInputChange = (e) => {

@@ -11,7 +11,7 @@ import { ConditionalColumns } from "./ConditionColumns";
 
 
 function RowSelect() {
-  const columns = useMemo(() => ConditionalColumns(COLUMNS), []);
+  const columns = useMemo(() => ConditionalColumns(COLUMNS,updateMyData), []);
   
   const [data, setData] = useState([...MOCK_DATA]);
 
